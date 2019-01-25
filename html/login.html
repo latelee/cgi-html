@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="img/logo.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css"><link href="css/bootstrap.min.css" rel="stylesheet"> 
+  <!-- 字体 -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-2.0.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- 网页标题 -->
+  <title>叠加器管理后台</title>
+</head>
+
+<!-- 大标题 -->
+<header class="post-header">
+	<center>
+        <div class="contact-title">叠加器管理后台</div>
+		<div class="contact-subtitle"><p> boa+html+js+cgi+onvif </p></div>
+    </center>
+</header>
+
+<!-- 导航 -->
+<div class="container">
+  <div class="row">
+    <div class="span6">
+    <ul class="nav nav-tabs">
+    <li><a class="link" href="index.html">首页</a></li>
+        <li  class="active"><a class="link" href="login.html">登陆</a></li>
+        <li><a class="link" href="address.html">地址配置</a></li>
+        <li><a class="link" href="cameraset.html">摄像头配置</a></li>
+		    <li><a class="link" href="location.html">位置配置</a></li>
+        <li><a class="link" href="account.html">账号配置</a></li>
+		    <li><a class="link" href="camerascan.html">摄像头扫瞄</a></li>
+        <li><a class="link" href="about.html">关于</a></li>
+    </div>
+  </div>
+</div>
+
+<body>
+<div class="container">
+  
+<!-- 居中 -->
+<div style="margin: 0px auto;display: table;">
+    <form name="login" action="cgi-bin/login.cgi">
+        <div class="input-group">
+            <span class="input-group-addon">账号</span>
+            <input type="text" name="name" class="form-control" placeholder="请输入账号">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" name="pwd" class="form-control" placeholder="请输入密码">
+        </div>
+        <br>
+        <div style="margin: 0px auto;display: table;"> <!-- 再居中 -->
+            <div id="login" class="bs-example">
+            <button type="submit" class="btn btn-primary">登陆</button>
+            </div>
+        </div>  
+    </form>
+</div>
+
+    <!-- 横线 -->
+    <hr>
+    
+    <!-- 页脚 -->
+    <footer class="container-fluid foot-wrap">
+      <div class="container">
+        <center>
+            ver v0.1 <br />
+            Powered by Late Lee <span>&copy;</span> <span><script>document.write(new Date().getFullYear());</script></span>
+        </center>
+      </div>
+    </footer>
+</div> <!-- class = container -->
+
+</body>
+
+<script type="text/javascript">
+	$(function () {
+		$("#testbutton .btn").click(function(){
+			$(this).button('login...').delay(500).queue(function() {
+			}); 
+		});
+	});
+</script>
+
+</html>

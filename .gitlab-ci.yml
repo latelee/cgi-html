@@ -1,0 +1,20 @@
+send_job:
+  script:
+    - apt-get update -qq && apt-get install -y -qq software-properties-common git sshpass
+    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    - apt-get update -qq && apt-get install -y -qq nodejs
+    - npm install nodemailer
+    - node .gitemail.js "li@latelee.org" "自动化CI测试" https://gitlab.com/latelee/boa_cgi
+  after_script:
+    - echo "after script"
+    - ls -al
+    - export SSHPASS=${hostkey}
+    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "mkdir -p /home/latelee/project/onvifosd_release"
+    - sshpass -e scp -rf * ${hostman}@${hostname}:/home/latelee/project/onvifosd_release
+    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "kill boa"
+    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "cd /home/latelee/project/onvifosd_release && ./boa"
+    
+    - echo $?
+    
+  only:
+    - master
