@@ -9,10 +9,8 @@ send_job:
     - echo "after script"
     - ls -al
     - export SSHPASS=${hostkey}
-    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "mkdir -p /home/latelee/project/onvifosd_release"
-    - sshpass -e scp -rf * ${hostman}@${hostname}:/home/latelee/project/onvifosd_release
     - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "kill boa"
-    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "cd /home/latelee/project/onvifosd_release && ./boa"
+    - sshpass -e ssh ${hostman}@${hostname} -o StrictHostKeyChecking=no "cd /home/latelee/project/onvifosd_release && git pull && ./boa"
     
     - echo $?
     
